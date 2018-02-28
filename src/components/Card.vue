@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h1>Cards</h1>
+    <h1>{{ card.title }}</h1>
+    <p>{{ card.text }}</p>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    cards: object
+  },
   data () {
   }
 }

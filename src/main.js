@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueFire from 'vuefire'
+import firebase from './firebase'
 
 Vue.config.productionTip = false
+
+vue.use(VueFire)
 
 /* eslint-disable no-new */
 new Vue({

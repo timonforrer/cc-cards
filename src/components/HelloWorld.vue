@@ -1,19 +1,29 @@
 <template>
   <div>
-    <cards></cards>
+    <card v-for="(card, index) in cards" v-bind:key="index" :card="card"></card>
   </div>
 </template>
 
 <script>
-import ccCard from './Cards.vue';
+import {db} from '../firebase'
+import ccCard from './Card.vue';
 
 export default {
   components: {
-    'cards': ccCard
+    'card': ccCard
   },
   data () {
     return {
-      msg: 'cascade quiz'
+      cards: {}
+    }
+  },
+  firebase: {
+    cards: {
+      source: db.ref('cards'),
+      // Optional, allows you to handle any errors.
+      cancelCallback(err) {
+        console.error(err);
+      }
     }
   }
 }
