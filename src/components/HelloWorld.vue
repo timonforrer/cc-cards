@@ -6,7 +6,7 @@
 
 <script>
 import {db} from '../firebase'
-import ccCard from './Card.vue';
+import ccCard from './Card.vue'
 
 export default {
   components: {
@@ -21,8 +21,8 @@ export default {
     cards: {
       source: db.ref('cards'),
       // Optional, allows you to handle any errors.
-      cancelCallback(err) {
-        console.error(err);
+      cancelCallback (err) {
+        console.error(err)
       }
     }
   }

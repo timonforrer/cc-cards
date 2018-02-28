@@ -7,9 +7,9 @@
 
 <script>
 export default {
-  props: {
-    cards: object
-  },
+  props: [
+    'card'
+  ],
   data () {
   }
 }
