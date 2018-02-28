@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-btn color="info">click me!</v-btn>
     <card v-for="(card, index) in cards" v-bind:key="index" :card="card"></card>
   </div>
 </template>
