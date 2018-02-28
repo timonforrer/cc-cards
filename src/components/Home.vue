@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <card v-for="(card, index) in cards" v-bind:key="index" :card="card"></card>
   </div>
 </template>
@@ -30,6 +30,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.home {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*text-align: center;*/
+  color: #2c3e50;
+}
+
 h1, h2 {
   font-weight: normal;
 }
