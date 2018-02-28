@@ -11,6 +11,7 @@ export default {
     'card'
   ],
   data () {
+    return {}
   }
 }
 </script>
