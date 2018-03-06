@@ -101,6 +101,7 @@ export default {
 
 .stats {
   width: 600px;
+  max-width: 90%;
   margin: 5em auto;
   font-size: 1.1em;
 }
