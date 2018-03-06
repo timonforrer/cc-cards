@@ -1,10 +1,18 @@
 <template>
   <div class="home">
-    <card v-for="(card, index) in cards" :key="index" :card="card" :index="index"></card>
+    <card v-for="(card, index) in cards"
+          :card="card"
+          :index="index"
+          :key="index"
+          :range="displayRange"
+          @updateList="cardUpdateList"
+          @like="cardLike"
+          @nope="cardNope"></card>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import {db} from '../firebase'
 import ccCard from './Card.vue'
 
@@ -14,7 +22,11 @@ export default {
   },
   data () {
     return {
-      cards: {}
+      cards: {},
+      displayRange: {
+        min: 1,
+        max: 3
+      }
     }
   },
   firebase: {
@@ -24,6 +36,19 @@ export default {
       cancelCallback (err) {
         console.error(err)
       }
+    }
+  },
+  methods: {
+    cardUpdateList: function (index) {
+      this.displayRange.min += 1
+      this.displayRange.max += 1
+      Vue.delete(this.cards, index)
+    },
+    cardLike: function (cat) {
+      console.log('category: ' + cat)
+    },
+    cardNope: function (cat) {
+      console.log('category: ' + cat)
     }
   }
 }
