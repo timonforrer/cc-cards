@@ -43,7 +43,7 @@ export default {
       this.$emit('updateList', index)
     },
     like: function (cat) {
-      this.$emit('nope', cat)
+      this.$emit('like', cat)
     },
     nope: function (cat) {
       this.$emit('nope', cat)

@@ -10,6 +10,12 @@
           @like="cardLike"
           @nope="cardNope"></card>
     </div>
+    <div class="stats">
+      <p><b>Administration:</b> {{ categories.administration }}</p>
+      <p><b>Design:</b> {{ categories.design }}</p>
+      <p><b>Informatik:</b> {{ categories.informatik }}</p>
+      <p><b>Multimedia:</b> {{ categories.multimedia }}</p>
+    </div>
   </div>
 </template>
 
@@ -28,6 +34,12 @@ export default {
       displayRange: {
         min: 1,
         max: 3
+      },
+      categories: {
+        administration: 0,
+        design: 0,
+        informatik: 0,
+        multimedia: 0
       }
     }
   },
@@ -47,10 +59,32 @@ export default {
       Vue.delete(this.cards, index)
     },
     cardLike: function (cat) {
-      console.log('category: ' + cat)
+      if (cat === 0) {
+        this.categories.design += 1
+      }
+      if (cat === 1) {
+        this.categories.multimedia += 1
+      }
+      if (cat === 2) {
+        this.categories.informatik += 1
+      }
+      if (cat === 3) {
+        this.categories.administration += 1
+      }
     },
     cardNope: function (cat) {
-      console.log('category: ' + cat)
+      if (cat === 0) {
+        this.categories.design -= 1
+      }
+      if (cat === 1) {
+        this.categories.multimedia -= 1
+      }
+      if (cat === 2) {
+        this.categories.informatik -= 1
+      }
+      if (cat === 3) {
+        this.categories.administration -= 1
+      }
     }
   }
 }
@@ -63,6 +97,12 @@ export default {
   height: 100vh;
   max-width: 90%;
   margin: 0 auto;
+}
+
+.stats {
+  width: 600px;
+  margin: 5em auto;
+  font-size: 1.1em;
 }
 
 .home {
