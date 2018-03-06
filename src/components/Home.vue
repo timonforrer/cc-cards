@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <card v-for="(card, index) in cards"
+    <div class="cc-cards">
+      <card v-for="(card, index) in cards"
           :card="card"
           :index="index"
           :key="index"
@@ -8,6 +9,7 @@
           @updateList="cardUpdateList"
           @like="cardLike"
           @nope="cardNope"></card>
+    </div>
   </div>
 </template>
 
@@ -55,11 +57,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.cc-cards {
+  position: relative;
+  display: block;
+  height: 100vh;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 .home {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*text-align: center;*/
   color: #2c3e50;
 }
 
