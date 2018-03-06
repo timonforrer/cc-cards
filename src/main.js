@@ -10,13 +10,7 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify, {
-  theme: {
-    // primary: colors.red.darken1,
-    // secondary: colors.red.lighten4,
-    // accent: colors.indigo.base
-  }
-})
+Vue.use(Vuetify)
 Vue.use(VueFire)
 
 /* eslint-disable no-new */
