@@ -15,14 +15,12 @@
           </div>
         </div>
     </div>
-    
     <div class="results">
       <h2 class="results__title">Design: {{ design }}</h2>
       <h2 class="results__title">Multimedia: {{ multimedia }}</h2>
       <h2 class="results__title">Informatik: {{ informatik }}</h2>
       <h2 class="results__title">Administration: {{ administration }}</h2>
     </div>
-  
   </div>
 </template>
 
