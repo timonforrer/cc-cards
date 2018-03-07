@@ -96,7 +96,9 @@ export default {
       if (this.$refs.form.validate()) {
         // Native form submission is not yet supported
         this.$firebaseRefs.cards.push({
-          title: this.title
+          title: this.title,
+          category: this.category,
+          description: this.description
         })
         console.log(this.title)
       }
