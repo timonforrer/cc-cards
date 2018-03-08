@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
+import Vue2Filters from 'vue2-filters'
 import 'vuetify/dist/vuetify.min.css'
 // import colors from 'vuetify/es5/util/colors'
 
@@ -12,6 +13,7 @@ Vue.config.productionTip = false
 
 Vue.use(Vuetify)
 Vue.use(VueFire)
+Vue.use(Vue2Filters)
 
 /* eslint-disable no-new */
 new Vue({
