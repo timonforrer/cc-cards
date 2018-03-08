@@ -1,18 +1,4 @@
 <template>
-      <!--<div class="card" v-show="card.id >= range.min && card.id <= range.max" :key="card.id">
-        <h1 class="card__title">{{ card.title }}</h1>
-        <div class="card__image" :style="{ 'background-image': 'url(' + card.image + ')' }"></div>
-        <p class="card__description">{{ card.description }}</p>
-        <div class="card__button-wrapper">
-          <button class="card__button" @click="[updateList(index), nope(card.category)]">
-            <i class="material-icons card__icon">thumb_down</i>
-          </button>
-          <button class="card__button" @click="[updateList(index), like(card.category)]">
-            <i class="material-icons card__icon">thumb_up</i>
-          </button>
-        </div>
-      </div>-->
-
   <div class="cc-card" v-show="card.id >= range.min && card.id <= range.max" :key="card.id">
     <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
       <div class="cc-card__titlewrapper">
