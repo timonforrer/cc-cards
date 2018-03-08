@@ -2,7 +2,7 @@
   <div class="cc-card" v-show="card.id >= range.min && card.id <= range.max" :key="card.id">
     <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
       <div class="cc-card__titlewrapper">
-        <h3 class="cc-card__category">{{ displayCategory (card.category) }}</h3>
+        <h3 class="cc-card__category">{{ card.category }}</h3>
         <h2 class="cc-card__title">{{ card.title }}</h2>
       </div>
     </div>
@@ -21,9 +21,7 @@ export default {
     'index',
     'range'
   ],
-  data () {
-    return {}
-  },
+  data () {},
   methods: {
     updateList: function (index) {
       this.$emit('updateList', index)
@@ -33,20 +31,6 @@ export default {
     },
     nope: function (cat) {
       this.$emit('nope', cat)
-    },
-    displayCategory: function (cat) {
-      if (cat === 0) {
-        return 'Design'
-      }
-      if (cat === 1) {
-        return 'Multimedia'
-      }
-      if (cat === 2) {
-        return 'Informatik'
-      }
-      if (cat === 3) {
-        return 'Administration'
-      }
     }
   }
 }

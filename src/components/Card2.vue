@@ -2,7 +2,7 @@
   <div class="cc-card">
     <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
       <div class="cc-card__titlewrapper">
-        <h3 class="cc-card__category">{{ displayCategory (card.category) }}</h3>
+        <h3 class="cc-card__category">{{ card.category }}</h3>
         <h2 class="cc-card__title">{{ card.title }}</h2>
       </div>
     </div>
@@ -19,22 +19,6 @@ export default {
   ],
   data () {
     return {}
-  },
-  methods: {
-    displayCategory: function (cat) {
-      if (cat === 0) {
-        return 'Design'
-      }
-      if (cat === 1) {
-        return 'Multimedia'
-      }
-      if (cat === 2) {
-        return 'Informatik'
-      }
-      if (cat === 3) {
-        return 'Administration'
-      }
-    }
   }
 }
 </script>
