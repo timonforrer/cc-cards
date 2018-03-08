@@ -31,7 +31,7 @@
           depressed
           class="btn--nomargin-left"
           @click="pushImage(image)">Upload</v-btn>
-          
+
         <div v-show="showProgress">
           <p>{{ value }}&nbsp;&percnt;</p>
           <v-progress-linear
@@ -140,13 +140,21 @@ export default {
       })
     },
     submit () {
-      if (this.$refs.form.validate() && this.uploadedImage != '' ) {
+      this.id = this.cards.length + 1
+      if (this.$refs.form.validate() && this.uploadedImage !== '') {
         this.$firebaseRefs.cards.push({
           title: this.title,
           category: this.category,
           description: this.description,
-          image: this.uploadedImage
+          image: this.uploadedImage,
+          id: this.id
         })
+        this.$refs.form.reset()
+        this.image = ''
+        this.uploadedImage = ''
+        this.imageShown = false
+        this.value = 0
+        this.id = 0
       }
     },
     clear () {
