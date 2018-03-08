@@ -1,13 +1,17 @@
 <template>
-    <div>
+    <div v-if="cardShown">
         <div class="cc-card__wrapper">
-          <card v-for="(card, index) in cards"
+          <card v-for="(card, index) in orderBy(cards, 'id')"
                 v-if="index == activeCard || index == activeCard + 1"
                 :key="index"
                 :card="card"></card>
         </div>
-        <button @click="[like(cards[activeCard].category), updateActive()]">like</button>
-        <button @click="[nope(cards[activeCard].category), updateActive()]">dislike</button>
+        <div class="aligner">
+          <div class="center">
+            <v-btn flat @click="[like(cards[activeCard].category), updateActive()]">like</v-btn>
+            <v-btn flat color="error" @click="[nope(cards[activeCard].category), updateActive()]">dislike</v-btn>
+          </div>
+        </div>
     </div>
 </template>
 
@@ -24,16 +28,19 @@ export default {
   },
   data () {
     return {
-      activeCard: 0
+      activeCard: 0,
+      cardShown: true
     }
   },
   methods: {
     updateActive: function () {
       console.log(this.activeCard)
       this.activeCard += 1
+      if (this.activeCard >= this.cards.length) {
+        this.cardShown = false
+      }
     },
     like: function (cat) {
-      console.log(cat)
       this.$emit('like', cat)
     },
     nope: function (cat) {
@@ -45,8 +52,17 @@ export default {
 
 <style scoped lang="scss">
 .cc-card__wrapper {
-  height: 60vh;
+  min-height: 80vh;
   margin-top: 5em;
   position: relative;
+}
+
+.aligner {
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  display: inline-block;
 }
 </style>
