@@ -1,7 +1,7 @@
 <template>
     <div v-if="cardShown">
         <div class="cc-card__wrapper">
-          <card v-for="(card, index) in orderBy(cards, 'id')"
+          <card v-for="(card, index) in orderBy(cards, 'id', -1)"
                 v-if="index == activeCard || index == activeCard + 1"
                 :key="index"
                 :card="card"></card>
