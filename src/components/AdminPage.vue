@@ -5,7 +5,7 @@
         <v-flex xs12>
           <h3 class="display-3 mt-3 mb-2">Adminpage</h3>
         </v-flex>
-        <v-flex xs6>
+        <v-flex xs12 md6>
           <cc-add></cc-add>
         </v-flex>
       </v-layout>
