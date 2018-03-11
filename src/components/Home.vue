@@ -57,16 +57,16 @@ export default {
       }
     },
     cardNope: function (cat) {
-      if (cat === 0) {
+      if (cat === 'Design') {
         this.categories.design -= 1
       }
-      if (cat === 1) {
+      if (cat === 'Multimedia') {
         this.categories.multimedia -= 1
       }
-      if (cat === 2) {
+      if (cat === 'Informatik') {
         this.categories.informatik -= 1
       }
-      if (cat === 3) {
+      if (cat === 'Administration') {
         this.categories.administration -= 1
       }
     }
