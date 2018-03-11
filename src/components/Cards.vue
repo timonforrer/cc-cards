@@ -5,7 +5,9 @@
         <card v-for="(card, index) in sortedCards"
               v-if="index == activeCard || index == activeCard + 1"
               :key="index"
-              :card="card"></card>
+              :card="card"
+              @swipedRight="[like(sortedCards[activeCard].category), updateActive()]"
+              @swipedLeft="[nope(sortedCards[activeCard].category), updateActive()]"></card>
       </div>
       <div class="aligner">
         <div class="center">

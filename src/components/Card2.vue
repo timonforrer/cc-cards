@@ -1,5 +1,5 @@
 <template>
-  <div class="cc-card">
+  <v-touch v-on:swipeleft="swipedLeft(card.category)" v-on:swiperight="swipedRight(card.category)" class="cc-card">
     <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
       <div class="cc-card__titlewrapper">
         <h3 class="cc-card__category">{{ card.category }}</h3>
@@ -9,7 +9,7 @@
     <div class="cc-card__body">
       <p class="cc-card__description">{{ card.description }}</p>
     </div>
-  </div>
+  </v-touch>
 </template>
 
 <script>
@@ -19,6 +19,14 @@ export default {
   ],
   data () {
     return {}
+  },
+  methods: {
+    swipedRight (cat) {
+      this.$emit('swipedRight', cat)
+    },
+    swipedLeft (cat) {
+      this.$emit('swipedLeft', cat)
+    }
   }
 }
 </script>
