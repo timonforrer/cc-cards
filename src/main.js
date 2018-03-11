@@ -7,13 +7,14 @@ import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
 import Vue2Filters from 'vue2-filters'
 import 'vuetify/dist/vuetify.min.css'
-// import colors from 'vuetify/es5/util/colors'
+var VueTouch = require('vue-touch')
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
 Vue.use(VueFire)
 Vue.use(Vue2Filters)
+Vue.use(VueTouch, {name: 'v-touch'})
 
 /* eslint-disable no-new */
 new Vue({
