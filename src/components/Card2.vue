@@ -1,5 +1,9 @@
 <template>
-  <v-touch v-on:swipeleft="swipedLeft(card.category)" v-on:swiperight="swipedRight(card.category)" class="cc-card">
+  <v-touch
+    v-on:swipeleft="swipedLeft(card.category)"
+    v-on:swiperight="swipedRight(card.category)"
+    v-on:pan="updateMouseXY"
+    class="cc-card">
     <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
       <div class="cc-card__titlewrapper">
         <h3 class="cc-card__category">{{ card.category }}</h3>
@@ -26,6 +30,11 @@ export default {
     },
     swipedLeft (cat) {
       this.$emit('swipedLeft', cat)
+    },
+    updateMouseXY (event) {
+      // clientX/Y gives the coordinates relative to the viewport in CSS pixels.
+      console.log(event.clientX)
+      console.log(event.clientY)
     }
   }
 }
