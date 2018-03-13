@@ -2,12 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Admin from '@/components/AdminPage'
+import Touch from '@/components/TouchDrag'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     { path: '/', component: Home },
-    { path: '/content', component: Admin }
+    { path: '/content', component: Admin },
+    { path: '/touch', component: Touch }
   ]
 })

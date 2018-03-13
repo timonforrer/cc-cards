@@ -2,16 +2,21 @@
   <v-touch
     v-on:swipeleft="swipedLeft(card.category)"
     v-on:swiperight="swipedRight(card.category)"
-    v-on:pan="updateMouseXY"
-    class="cc-card">
-    <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
-      <div class="cc-card__titlewrapper">
-        <h3 class="cc-card__category">{{ card.category }}</h3>
-        <h2 class="cc-card__title">{{ card.title }}</h2>
+    v-on:panstart="setXY"
+    v-on:pan="updateMouseXY">
+    <div
+      id="getWidth"
+      class="cc-card"
+      v-bind:style="{ transform: 'translateX(' + x + 'px)' }">
+      <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
+        <div class="cc-card__titlewrapper">
+          <h3 class="cc-card__category">{{ card.category }}</h3>
+          <h2 class="cc-card__title">{{ card.title }}</h2>
+        </div>
       </div>
-    </div>
-    <div class="cc-card__body">
-      <p class="cc-card__description">{{ card.description }}</p>
+      <div class="cc-card__body">
+        <p class="cc-card__description">{{ card.description }}</p>
+      </div>
     </div>
   </v-touch>
 </template>
@@ -22,7 +27,12 @@ export default {
     'card'
   ],
   data () {
-    return {}
+    return {
+      originX: 0,
+      originY: 0,
+      x: 0,
+      y: 0
+    }
   },
   methods: {
     swipedRight (cat) {
@@ -31,10 +41,14 @@ export default {
     swipedLeft (cat) {
       this.$emit('swipedLeft', cat)
     },
-    updateMouseXY (event) {
+    setXY () {
+      this.originX = event.clientX
+    },
+    updateMouseXY () {
       // clientX/Y gives the coordinates relative to the viewport in CSS pixels.
-      console.log(event.clientX)
-      console.log(event.clientY)
+      let offset = (this.originX - event.clientX)
+      this.x = offset
+      console.log(offset)
     }
   }
 }
@@ -42,11 +56,14 @@ export default {
 
 <style lang="scss">
 .cc-card {
-  left: 50%;
+  left: 0;
+  right: 0;
 
   background-color: #fff;
   border-radius: 3px;
   box-shadow: 0 2em 3em rgba(0, 0, 0, 0.07);
+  margin-left: auto;
+  margin-right: auto;
   max-width: 100%;
   overflow: hidden;
   position: absolute;
@@ -54,13 +71,11 @@ export default {
   width: 600px;
 
   &:nth-child(1) {
-    transform: translateX(-50%);
-    z-index: 3;
+    z-index: 2;
   }
 
   &:nth-child(2) {
-    transform:  translateX(-50%);
-    z-index: 2;
+    z-index: 1;
   }
 
   &__image {
