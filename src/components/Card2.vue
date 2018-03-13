@@ -3,6 +3,7 @@
     v-on:swipeleft="swipedLeft(card.category)"
     v-on:swiperight="swipedRight(card.category)"
     v-on:panstart="setXY"
+    v-on:panend="resetXY"
     v-on:pan="updateMouseXY">
     <div
       id="getWidth"
@@ -46,9 +47,12 @@ export default {
     },
     updateMouseXY () {
       // clientX/Y gives the coordinates relative to the viewport in CSS pixels.
-      let offset = (this.originX - event.clientX)
+      let offset = (this.originX - event.clientX) * -1
       this.x = offset
       console.log(offset)
+    },
+    resetXY () {
+      this.x = 0
     }
   }
 }
@@ -67,7 +71,7 @@ export default {
   max-width: 100%;
   overflow: hidden;
   position: absolute;
-  transition: opacity 500ms ease;
+  transition: opacity 500ms ease, transform 200ms ease;
   width: 600px;
 
   &:nth-child(1) {
