@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2>cascade Cards</h2>
+    <h1 class="title">cascade Cards</h1>
     <cards :cards="cards"
           @like="cardLike"
           @nope="cardNope"
@@ -20,6 +20,7 @@ import {db} from '../firebase'
 import ccCards from './Cards.vue'
 
 export default {
+  name: 'Home',
   components: {
     'cards': ccCards
   },
@@ -76,6 +77,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.title {
+  margin: 3em auto 0 auto;
+  max-width: 90%;
+  position: relative;
+  width: 600px;
+}
+
 .cc-cards {
   position: relative;
   display: block;

@@ -11,8 +11,8 @@ var VueTouch = require('vue-touch')
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify)
 Vue.use(VueFire)
+Vue.use(Vuetify)
 Vue.use(Vue2Filters)
 Vue.use(VueTouch, {name: 'v-touch'})
 
@@ -20,6 +20,6 @@ Vue.use(VueTouch, {name: 'v-touch'})
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  components: { App }
 })

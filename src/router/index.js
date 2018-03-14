@@ -8,7 +8,15 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', component: Home },
-    { path: '/content', component: Admin }
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/content',
+      name: 'AdminPage',
+      component: Admin
+    }
   ]
 })

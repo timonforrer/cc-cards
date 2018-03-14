@@ -24,6 +24,7 @@ import ccCard from './Card2.vue'
 var _ = require('lodash')
 
 export default {
+  name: 'Cards',
   props: [
     'cards',
     'cat'

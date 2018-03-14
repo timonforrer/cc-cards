@@ -73,6 +73,7 @@
 import {db, storage} from '../firebase'
 
 export default {
+  name: 'ccAddCard',
   data () {
     return {
       cards: {},

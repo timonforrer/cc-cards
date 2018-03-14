@@ -17,6 +17,7 @@
 import ccAddCard from './ccAddCard.vue'
 
 export default {
+  name: 'AdminPage',
   components: {
     'cc-add': ccAddCard
   },
