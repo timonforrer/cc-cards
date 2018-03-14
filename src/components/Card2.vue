@@ -1,14 +1,14 @@
 <template>
   <v-touch
-    v-on:swipeleft="swipedLeft(card.category)"
-    v-on:swiperight="swipedRight(card.category)"
-    v-on:panstart="setXY"
+    v-on:swipeleft="swipedLeft"
+    v-on:swiperight="swipedRight"
     v-on:panend="resetXY"
-    v-on:pan="updateMouseXY">
+    v-on:pan="styles"
+    class="index">
     <div
       id="getWidth"
       class="cc-card"
-      v-bind:style="{ transform: 'translateX(' + x + 'px)' }">
+      v-bind:style="{'transform':'translate(' + x + 'px,'+ y +'px) rotate(' + rot + 'deg)'}">
       <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
         <div class="cc-card__titlewrapper">
           <h3 class="cc-card__category">{{ card.category }}</h3>
@@ -29,36 +29,46 @@ export default {
   ],
   data () {
     return {
-      originX: 0,
-      originY: 0,
       x: 0,
-      y: 0
+      y: 0,
+      rot: 0
     }
   },
   methods: {
     swipedRight (cat) {
-      this.$emit('swipedRight', cat)
+      this.$emit('swipedRight')
     },
     swipedLeft (cat) {
-      this.$emit('swipedLeft', cat)
-    },
-    setXY () {
-      this.originX = event.clientX
-    },
-    updateMouseXY () {
-      // clientX/Y gives the coordinates relative to the viewport in CSS pixels.
-      let offset = (this.originX - event.clientX) * -1
-      this.x = offset
-      console.log(offset)
+      this.$emit('swipedLeft')
     },
     resetXY () {
+      this.y = 0
       this.x = 0
+      this.rot = 0
+    },
+    styles (e) {
+      let offsetX = e.deltaX
+      let offsetY = e.deltaY
+      this.x = offsetX
+      this.y = offsetY / 10
+      this.rot = offsetX / 100
     }
   }
 }
 </script>
 
 <style lang="scss">
+.index {
+  position: relative;
+
+  &:first-child {
+    z-index: 3;
+  }
+  &:nth-child(2) {
+    z-index: 2;
+  }
+}
+
 .cc-card {
   left: 0;
   right: 0;
@@ -71,16 +81,8 @@ export default {
   max-width: 100%;
   overflow: hidden;
   position: absolute;
-  transition: opacity 500ms ease, transform 200ms ease;
+  transition: opacity 500ms ease;
   width: 600px;
-
-  &:nth-child(1) {
-    z-index: 2;
-  }
-
-  &:nth-child(2) {
-    z-index: 1;
-  }
 
   &__image {
     background-position: center center;
