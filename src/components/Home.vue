@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h2>cascade Cards</h2>
     <cards :cards="cards"
           @like="cardLike"
           @nope="cardNope"
