@@ -7,7 +7,7 @@ import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
 import Vue2Filters from 'vue2-filters'
 import 'vuetify/dist/vuetify.min.css'
-var VueTouch = require('vue-touch')
+import VueTouch from 'vue-touch'
 
 Vue.config.productionTip = false
 

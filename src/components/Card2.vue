@@ -85,6 +85,10 @@ export default {
   transition: opacity 500ms ease;
   width: 600px;
 
+  @media screen and (max-width: 380px) {
+    box-shadow: none;
+  }
+
   &__image {
     background-position: center center;
     background-size: cover;
@@ -101,6 +105,10 @@ export default {
     color: white;
     padding: 30px 30px 15px 30px;
     position: absolute;
+
+    @media screen and (max-width: 380px) {
+      padding: 20px 20px 7px 20px;
+    }
   }
 
   &__title {
@@ -109,6 +117,10 @@ export default {
 
   &__body {
     padding: 30px;
+
+    @media screen and (max-width: 380px) {
+      padding: 20px;
+    }
   }
 
   &__description {
