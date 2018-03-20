@@ -1,74 +1,72 @@
 <template>
-  <v-app>
-    <v-card>
-      <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">Add new card</h3>
-          <div>Fill in all information and submit in order to add a new card to the quiz.</div>
+  <v-card>
+    <v-card-title primary-title>
+      <div>
+        <h3 class="headline mb-0">Add new card</h3>
+        <div>Fill in all information and submit in order to add a new card to the quiz.</div>
+      </div>
+    </v-card-title>
+    <v-container>
+      <v-form v-model="valid" ref="form">
+        <v-text-field
+          label="Title"
+          v-model="title"
+          :rules="titleRules"
+          required
+        ></v-text-field>
+
+        <v-select
+          label="Category"
+          v-model="category"
+          :items="categories"
+          :rules="categoryRules"
+          required
+        ></v-select>
+
+        <input type="file"
+          @change="getImage($event)">
+
+        <v-btn
+          color="info"
+          depressed
+          class="btn--nomargin-left"
+          @click="pushImage(image)">Upload</v-btn>
+
+        <div v-show="showProgress">
+          <p>{{ value }}&nbsp;&percnt;</p>
+          <v-progress-linear
+            v-model="value"
+            :height="4">
+          </v-progress-linear>
         </div>
-      </v-card-title>
-      <v-container>
-        <v-form v-model="valid" ref="form">
-          <v-text-field
-            label="Title"
-            v-model="title"
-            :rules="titleRules"
-            required
-          ></v-text-field>
 
-          <v-select
-            label="Category"
-            v-model="category"
-            :items="categories"
-            :rules="categoryRules"
-            required
-          ></v-select>
+        <img :src="uploadedImage" v-if="imageShown" class="image">
 
-          <input type="file"
-            @change="getImage($event)">
+        <v-text-field
+          label="Description"
+          v-model="description"
+          :rules="descriptionRules"
+          multi-line
+          required
+        ></v-text-field>
 
+        <v-card-actions>
           <v-btn
-            color="info"
-            depressed
-            class="btn--nomargin-left"
-            @click="pushImage(image)">Upload</v-btn>
+            @click="submit"
+            :disabled="!valid"
+            flat
+            color="orange">
+              submit
+          </v-btn>
 
-          <div v-show="showProgress">
-            <p>{{ value }}&nbsp;&percnt;</p>
-            <v-progress-linear
-              v-model="value"
-              :height="4">
-            </v-progress-linear>
-          </div>
-
-          <img :src="uploadedImage" v-if="imageShown" class="image">
-
-          <v-text-field
-            label="Description"
-            v-model="description"
-            :rules="descriptionRules"
-            multi-line
-            required
-          ></v-text-field>
-
-          <v-card-actions>
-            <v-btn
-              @click="submit"
-              :disabled="!valid"
-              flat
-              color="orange">
-                submit
-            </v-btn>
-
-            <v-btn @click="clear"
-              flat>
-                clear
-            </v-btn>
-          </v-card-actions>
-        </v-form>
-      </v-container>
-    </v-card>
-  </v-app>
+          <v-btn @click="clear"
+            flat>
+              clear
+          </v-btn>
+        </v-card-actions>
+      </v-form>
+    </v-container>
+  </v-card>
 </template>
 
 <script>
