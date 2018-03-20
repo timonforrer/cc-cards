@@ -6,20 +6,23 @@ import router from './router'
 import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
 import Vue2Filters from 'vue2-filters'
-import 'vuetify/dist/vuetify.min.css'
 import VueTouch from 'vue-touch'
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
 
 Vue.use(VueFire)
 Vue.use(Vuetify)
 Vue.use(Vue2Filters)
-Vue.use(VueTouch, {name: 'v-touch'})
+Vue.use(VueTouch, {
+  name: 'v-touch'
+})
 
-/* eslint-disable no-new */
-new Vue({
+var vue = new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App }
 })
+
+vue()
