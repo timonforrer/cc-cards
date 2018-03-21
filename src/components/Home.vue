@@ -2,7 +2,10 @@
   <div class="home">
     <cc-cards
     class="cc-cards"
-    :cards="sortedCards"></cc-cards>
+    :cards="sortedCards"
+    @like="cardLike"
+    @nope="cardNope"></cc-cards>
+    {{ categories }}
   </div>
 </template>
 
@@ -19,7 +22,13 @@ export default {
   },
   data () {
     return {
-      cards: {}
+      cards: {},
+      categories: {
+        administration: 0,
+        design: 0,
+        informatik: 0,
+        multimedia: 0
+      }
     }
   },
   firebase: {
@@ -28,6 +37,36 @@ export default {
       // Optional, allows you to handle any errors.
       cancelCallback (err) {
         console.error(err)
+      }
+    }
+  },
+  methods: {
+    cardLike: function (cat) {
+      if (cat === 'Design') {
+        this.categories.design += 1
+      }
+      if (cat === 'Multimedia') {
+        this.categories.multimedia += 1
+      }
+      if (cat === 'Informatik') {
+        this.categories.informatik += 1
+      }
+      if (cat === 'Administration') {
+        this.categories.administration += 1
+      }
+    },
+    cardNope: function (cat) {
+      if (cat === 'Design') {
+        this.categories.design -= 1
+      }
+      if (cat === 'Multimedia') {
+        this.categories.multimedia -= 1
+      }
+      if (cat === 'Informatik') {
+        this.categories.informatik -= 1
+      }
+      if (cat === 'Administration') {
+        this.categories.administration -= 1
       }
     }
   },
