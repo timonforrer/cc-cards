@@ -1,6 +1,15 @@
 <template>
-  <div class="index">
-    <div class="cc-card">
+  <v-touch
+    class="index"
+    v-on:swiperight="swipedRight"
+    v-on:swipeleft="swipedLeft"
+    v-on:panend="resetXY"
+    v-on:pan="styles">
+
+    <div
+      class="cc-card"
+      v-bind:style="{'transform':'translate(' + x + 'px,'+ y +'px) rotate(' + rot + 'deg)'}">
+
       <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
         <div class="cc-card__titlewrapper">
           <h3 class="cc-card__category">{{ card.category }}</h3>
@@ -10,8 +19,10 @@
       <div class="cc-card__body">
         <p class="cc-card__description">{{ card.id }} {{ card.description }}</p>
       </div>
+
     </div>
-  </div>
+
+  </v-touch>
 </template>
 
 <script>
@@ -21,7 +32,31 @@ export default {
     'card'
   ],
   data () {
-    return {}
+    return {
+      x: 0,
+      y: 0,
+      rot: 0
+    }
+  },
+  methods: {
+    swipedRight (cat) {
+      this.$emit('swipedRight')
+    },
+    swipedLeft (cat) {
+      this.$emit('swipedLeft')
+    },
+    resetXY () {
+      this.y = 0
+      this.x = 0
+      this.rot = 0
+    },
+    styles (e) {
+      let offsetX = e.deltaX
+      let offsetY = e.deltaY
+      this.x = offsetX
+      this.y = offsetY
+      this.rot = offsetX / 100
+    }
   }
 }
 </script>
@@ -90,7 +125,6 @@ export default {
     font-size: 1.1rem;
     line-height: 1.1rem;
     margin: 0;
-    opacity: 0.8;
   }
 
   &__body {
