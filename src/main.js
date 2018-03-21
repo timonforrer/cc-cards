@@ -5,10 +5,12 @@ import Vue from 'vue'
 import VueFire from 'vuefire'
 import App from './App'
 import router from './router'
+import VueTouch from 'vue-touch'
 
 Vue.config.productionTip = false
 
 Vue.use(VueFire)
+Vue.use(VueTouch, {name: 'v-touch'})
 
 /* eslint-disable no-new */
 new Vue({
