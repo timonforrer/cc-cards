@@ -1,21 +1,34 @@
 <template>
   <div class="hello">
-      <h1>{{ title }}</h1>
+    <ul>
+      <li v-for="card in cards" v-bind:key="card.id">{{ card.title }} – {{ card.category }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
+import {db} from '../firebase'
+
 export default {
   name: 'Home',
   data () {
     return {
-      title: 'Nachricht'
+      cards: {}
+    }
+  },
+  firebase: {
+    cards: {
+      source: db.ref('cards'),
+      // Optional, allows you to handle any errors.
+      cancelCallback (err) {
+        console.error(err)
+      }
     }
   }
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 h1, h2 {
   font-weight: normal;
 }
@@ -24,7 +37,6 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 a {
