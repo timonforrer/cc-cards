@@ -36,10 +36,10 @@ export default {
     }
   },
   methods: {
-    swipedRight (cat) {
+    swipedRight () {
       this.$emit('swipedRight')
     },
-    swipedLeft (cat) {
+    swipedLeft () {
       this.$emit('swipedLeft')
     },
     resetXY () {
