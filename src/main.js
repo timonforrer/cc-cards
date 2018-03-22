@@ -7,6 +7,7 @@ import VueFire from 'vuefire'
 import Vuetify from 'vuetify'
 import Vue2Filters from 'vue2-filters'
 import VueTouch from 'vue-touch'
+import 'babel-polyfill'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
