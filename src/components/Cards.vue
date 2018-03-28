@@ -86,6 +86,10 @@ export default {
   min-height: 80vh;
   margin-top: 5em;
   position: relative;
+
+  @media screen and (max-width: 380px) {
+    min-height: 90vh;
+  }
 }
 
 .aligner {
@@ -104,5 +108,9 @@ export default {
   width: 200px;
   z-index: 3;
   top: 8em;
+
+  @media screen and (max-width: 380px) {
+    top: 0;
+  }
 }
 </style>

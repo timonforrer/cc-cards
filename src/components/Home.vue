@@ -5,7 +5,6 @@
     :cards="sortedCards"
     @like="cardLike"
     @nope="cardNope"></cc-cards>
-    {{ categories }}
   </div>
 </template>
 
