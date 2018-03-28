@@ -1,9 +1,11 @@
 <template>
   <div>
+    <h2>{{ message }}</h2>
     <vue-circle
       :progress="value"
-      :size="100"
-      :start-angle="4.75"></vue-circle>
+      :size="200"
+      :start-angle="4.75"
+      :fill="{ gradient: ['rgb(175, 221, 234)', 'rgb(116, 183, 199)'] }"></vue-circle>
   </div>
 </template>
 
@@ -13,13 +15,15 @@ import VueCircle from 'vue2-circle-progress'
 
 export default {
   name: 'Result',
+  props: [
+    'value',
+    'message'
+  ],
   components: {
     VueCircle
   },
   data () {
-    return {
-      value: 100
-    }
+    return {}
   },
   methods: {}
 }
@@ -27,5 +31,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+h2 {
+  font-family: 'Lobster';
+  font-size: 2.5em;
+  text-align: center;
+}
 </style>
