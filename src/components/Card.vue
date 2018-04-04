@@ -8,12 +8,28 @@
 
     <div
       class="cc-card"
-      v-bind:style="{'transform':'translate(' + x + 'px,'+ y +'px) rotate(' + rot + 'deg)'}">
-
+      v-bind:style="{'transform':'translate(' + x + 'px,'+ y +'px) rotate(' + rot + 'deg)'}"
+      >
+      <div
+        class="cc-card__seperator"
+        v-bind:class="{
+          'cc-card__seperator--administration':(card.category === 'Administration'),
+          'cc-card__seperator--design':(card.category === 'Design'),
+          'cc-card__seperator--informatik':(card.category === 'Informatik'),
+          'cc-card__seperator--multimedia':(card.category === 'Multimedia')}"
+          >
+      </div>
       <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
         <div class="cc-card__titlewrapper">
           <h3 class="cc-card__category">{{ card.category }}</h3>
-          <h2 class="cc-card__title">{{ card.title }}</h2>
+          <h2
+          class="cc-card__title"
+          v-bind:class="{
+            'cc-card__title--administration':(card.category === 'Administration'),
+            'cc-card__title--design':(card.category === 'Design'),
+            'cc-card__title--informatik':(card.category === 'Informatik'),
+            'cc-card__title--multimedia':(card.category === 'Multimedia')}"
+          >{{ card.title }}</h2>
         </div>
       </div>
       <div class="cc-card__body">
@@ -63,6 +79,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import "../sass/variables.scss";
+
 .index {
   position: relative;
 
@@ -93,6 +111,28 @@ export default {
     box-shadow: none;
   }
 
+  &__seperator {
+    height: 10px;
+    width: 100%;
+    display: block;
+
+    &--administration {
+      background-color: $informatik-primary;
+    }
+
+    &--design {
+      background-color: $design-primary;
+    }
+
+    &--informatik {
+      background-color: $informatik-primary;
+    }
+
+    &--multimedia {
+      background-color: $multimedia-primary;
+    }
+  }
+
   &__image {
     background-position: center center;
     background-size: cover;
@@ -119,6 +159,22 @@ export default {
     font-size: 2rem;
     line-height: 2rem;
     margin: 1rem 0 0.5rem 0;
+
+    &--administration {
+      color: $informatik-primary;
+    }
+
+    &--design {
+      color: $design-primary;
+    }
+
+    &--informatik {
+      color: $informatik-primary;
+    }
+
+    &--multimedia {
+      color: $multimedia-primary;
+    }
   }
 
   &__category {
