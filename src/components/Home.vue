@@ -71,7 +71,8 @@ export default {
   },
   computed: {
     sortedCards () {
-      return _.orderBy(this.cards, 'id', 'desc')
+      // return _.orderBy(this.cards, 'id', 'desc')
+      return _.shuffle(this.cards)
     }
   }
 }
