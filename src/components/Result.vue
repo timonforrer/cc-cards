@@ -31,9 +31,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h2 {
+* {
   font-family: 'Lobster';
-  font-size: 2.5em;
   text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
 }
 </style>
