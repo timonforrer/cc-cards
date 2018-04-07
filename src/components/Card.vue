@@ -210,6 +210,12 @@ export default {
   &__description {
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     margin: 0;
+    text-align: justify;
+    hyphens: auto;
+
+    @media screen and (max-width: 380px) {
+      text-align: right;
+    }
   }
 }
 </style>
