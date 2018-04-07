@@ -1,0 +1,67 @@
+{
+  "cards" : {
+    "Administration_Projektplanung" : {
+      "category" : "Administration",
+      "description" : "Damit Projekte erfolgreich ausgeführt werden können, ist eine gute Planung erforderlich. Hierbei muss ein Zeitplan erstellt werden und es muss fortlaufend überprüft werden, ob sich das Projekt auch mit dem Zeiplan übereinstimmt.",
+      "id" : 9,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fprojektplanugn.jpg?alt=media&token=8edd96ce-5846-4fac-ad49-9d7f0bf37903",
+      "title" : "Projektplanung"
+    },
+    "Administration_Verwaltung" : {
+      "category" : "Administration",
+      "description" : "Neben Gestaltung, Multimedia und Informatik stellen auch kaufmännische Aufgaben einen wichtigen Teil der Mediamatiker-Ausbildung dar. Dies kann zum Beispiel das beantworten von telefonischen Kundenanfragen sein, das weiterleiten von Briefen an die richtigen Stellen innerhalb der Unternehmung oder das Einholen von Offerten bei Lieferanten. Je nach Betrieb können sich die Aufgaben unterscheiden.",
+      "id" : 8,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fverwaltung.jpg?alt=media&token=838f5c35-ad95-4351-bf21-2935a85e2d66",
+      "title" : "Verwaltung"
+    },
+    "Design_Gestaltung" : {
+      "category" : "Design",
+      "description" : "Kommunikation beinhaltet nicht nur, was vermittelt wird, sondern auch, wie etwas entsprechend dargestellt wird. Aus diesem Grund arbeiten Mediamatiker oft eng mit Personen aus Marketing und Kommunikation zusammen, um gemeinsam eine Lösung zu finden, wie die Inhalte präsentiert werden sollen.",
+      "id" : 4,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fgestaltung.jpg?alt=media&token=3bd34cec-2b64-4bca-8d4c-58a3c8113a72",
+      "title" : "Gestaltung"
+    },
+    "Design_analoge-und-digitale-Medien" : {
+      "category" : "Design",
+      "description" : "Zwar gewinnen die digitalen Medien (z.B. Videos, Websites) derzeit immer mehr an Wichtigkeit, dennoch werden die analogen Medien (z.B. Broschüren, Plakate) noch lange nicht komplett verschwinden. Mediamatiker erstellen die Designs für die unterschiedlichen Arten von Medien und erlernen in ihrer Ausbildung, worauf bei der Erstellung zu achten ist.",
+      "id" : 5,
+      "image" : "https://via.placeholder.com/192x108?text=Analoge+und+digitale+Medien",
+      "title" : "Analoge und digitale Medien"
+    },
+    "Informatik_IT-Support" : {
+      "category" : "Informatik",
+      "description" : "Unter IT-Support versteht man die Betreuung von Kunden und Mitarbeiter, wenn Probleme mit technischen Geräten, Software oder ähnlichem auftreten. Mediamatiker betreuen hierbei Kunden und Mitarbeiter und helfen bei der Lösungssuche.",
+      "id" : 1,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fit-support.jpg?alt=media&token=8dd00803-b645-46bb-bdcb-69a789ba676d",
+      "title" : "IT Support"
+    },
+    "Informatik_Netzwerke" : {
+      "category" : "Informatik",
+      "description" : "Ein Netzwerk muss rund um die Uhr funktionieren. Ansonsten können finanzielle Schäden und Einbussen am Image der Firma drohen. Mediamatiker sichern aus diesen Gründen das Netzwerk. Zudem stellen Mediamatiker sicher, dass neue Geräte richtig im Netzwerk eingebunden werden und eine Internetverbindung zustande kommt.",
+      "id" : 2,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fnetzwerk.jpg?alt=media&token=33914878-fec0-4e6a-8918-a00703d6af84",
+      "title" : "Netwerke"
+    },
+    "Informatik_Websites" : {
+      "category" : "Informatik",
+      "description" : "Mit der zunehmenden Wichtigkeit des Internets steigt auch die Nachfrage nach Personen, die eine Website konzipieren und umsetzen können. Mediamatiker erlernen in ihrer Ausbildung den Grundlagen des Webdesigns. Dies beinhaltet die Gestaltung, das Coden und das Produzieren von Inhalten, wie z.B. Videos, die auf der Website eingebunden werden.",
+      "id" : 3,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fwebsites.jpg?alt=media&token=6c7a7c43-c46f-4a19-a967-4776848415f9",
+      "title" : "Websites"
+    },
+    "Multimedia_Audioproduktion" : {
+      "category" : "Multimedia",
+      "description" : "Oft macht es Sinn, ein Video gesprochene Erklärungen zu unterlegen. Beim Videoschnitt werden hierbei die Audioaufnahmen optimal auf die Videos abgestimmt. Um eine Atmosphäre zu schaffen, werden an gewissen Stellen auch Audioeffekte eingefügt oder die Aufnahmen entsprechend bearbeitet.",
+      "id" : 7,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Faudioproduktion.jpg?alt=media&token=1739b50e-0dde-48ab-b861-f5b0121f19eb",
+      "title" : "Audioproduktion"
+    },
+    "Multimedia_Videoproduktion" : {
+      "category" : "Multimedia",
+      "description" : "Von der Planung, über die Umsetzung bis hin zum Schnitt: Mediamatiker erlernen in ihrer Ausbildung den ganzen Ablauf einer kleinen Videoproduktion. Hierbei sind nicht nur technische Fähigkeiten, sondern auch Gestalterische Affinität gefragt, damit ein qualitativ hochwertiges und ansprechendes Video zustande kommt.",
+      "id" : 6,
+      "image" : "https://firebasestorage.googleapis.com/v0/b/cc-cards.appspot.com/o/cards%2Fvideoproduktion.jpg?alt=media&token=cf0047d9-19b3-40b4-a25e-14de050346c3",
+      "title" : "Videoproduktion"
+    }
+  }
+}
