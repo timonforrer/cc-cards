@@ -214,7 +214,7 @@ export default {
     hyphens: auto;
 
     @media screen and (max-width: 380px) {
-      text-align: right;
+      text-align: left;
     }
   }
 }
