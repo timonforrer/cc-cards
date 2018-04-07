@@ -9,6 +9,7 @@
     <div
       class="cc-card"
       v-bind:style="{'transform':'translate(' + x + 'px,'+ y +'px) rotate(' + rot + 'deg)'}"
+      v-bind:class="{ 'cc-card--inactive':(activeCard < index) }"
       >
       <div
         class="cc-card__seperator"
@@ -45,7 +46,9 @@
 export default {
   name: 'Card',
   props: [
-    'card'
+    'card',
+    'activeCard',
+    'index'
   ],
   data () {
     return {
@@ -104,11 +107,14 @@ export default {
   max-width: 100%;
   overflow: hidden;
   position: absolute;
-  transition: opacity 500ms ease;
   width: 600px;
 
   @media screen and (max-width: 380px) {
     box-shadow: none;
+  }
+
+  &--inactive {
+    opacity: 0.3;
   }
 
   &__seperator {
@@ -145,7 +151,7 @@ export default {
     bottom: 0;
     left: 0;
 
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
     color: white;
     padding: 30px 30px 15px 30px;
     position: absolute;
@@ -156,9 +162,18 @@ export default {
   }
 
   &__title {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    letter-spacing: 0.1em;
     line-height: 2rem;
     margin: 1rem 0 0.5rem 0;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 380px) {
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+      margin: 0.5rem 0 0.5rem 0;
+    }
 
     &--administration {
       color: $informatik-primary;
@@ -178,6 +193,7 @@ export default {
   }
 
   &__category {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
     line-height: 1.1rem;
     margin: 0;
@@ -192,6 +208,7 @@ export default {
   }
 
   &__description {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     margin: 0;
   }
 }
