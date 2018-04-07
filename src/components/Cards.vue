@@ -8,6 +8,8 @@
         v-if="index == activeCard || index == activeCard + 1"
         :key="card.id"
         :card="card"
+        :activeCard="activeCard"
+        :index="index"
         @swipedRight="[like(card.category), updateActive()]"
         @swipedLeft="[nope(card.category), updateActive()]">
       </cc-card>
@@ -21,7 +23,7 @@
     </div>
 
     <div class="aligner">
-      <div class="center">
+      <div class="center" v-if="this.activeCard != this.cards.length">
         <button @click="[like(cards[activeCard].category), updateActive()]">Like</button>
         <button @click="[nope(cards[activeCard].category), updateActive()]">Nope</button>
       </div>
@@ -65,14 +67,12 @@ export default {
       this.activeCard += 1
       this.value = ((this.likes / maxLikes) * 100)
 
-      console.log(this.value)
-
       if (this.activeCard === this.cards.length) {
         this.resultShown = true
       }
 
       if (this.value > 50) {
-        this.message = 'It\'s a match'
+        this.message = `It's a match!`
       } else {
         this.message = 'Mediamatiker auf den 2. Blick?'
       }
@@ -83,7 +83,7 @@ export default {
 
 <style scoped lang="scss">
 .cc-card-wrapper {
-  min-height: 80vh;
+  min-height: 100vh;
   margin-top: 5em;
   position: relative;
 
