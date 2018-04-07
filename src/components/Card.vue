@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="cc-card__body">
-        <p class="cc-card__description">{{ card.id }} {{ card.description }}</p>
+        <p class="cc-card__description">{{ card.description }}</p>
       </div>
 
     </div>
