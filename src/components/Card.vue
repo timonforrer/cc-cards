@@ -11,29 +11,23 @@
       v-bind:style="{'transform':'translate(' + x + 'px,'+ y +'px) rotate(' + rot + 'deg)'}"
       v-bind:class="{ 'cc-card--inactive':(activeCard < index) }"
       >
-      <div
-        class="cc-card__seperator"
-        v-bind:class="{
-          'cc-card__seperator--administration':(card.category === 'Administration'),
-          'cc-card__seperator--design':(card.category === 'Design'),
-          'cc-card__seperator--informatik':(card.category === 'Informatik'),
-          'cc-card__seperator--multimedia':(card.category === 'Multimedia')}"
-          >
-      </div>
+
       <div class="cc-card__image" v-bind:style="{ backgroundImage: 'url(' + card.image + ')' }">
         <div class="cc-card__titlewrapper">
           <h3 class="cc-card__category">{{ card.category }}</h3>
           <h2
           class="cc-card__title"
-          v-bind:class="{
-            'cc-card__title--administration':(card.category === 'Administration'),
-            'cc-card__title--design':(card.category === 'Design'),
-            'cc-card__title--informatik':(card.category === 'Informatik'),
-            'cc-card__title--multimedia':(card.category === 'Multimedia')}"
           >{{ card.title }}</h2>
         </div>
       </div>
-      <div class="cc-card__body">
+      <div
+        class="cc-card__body"
+        v-bind:class="{
+          'cc-card__body--administration':(card.category === 'Administration'),
+          'cc-card__body--design':(card.category === 'Design'),
+          'cc-card__body--informatik':(card.category === 'Informatik'),
+          'cc-card__body--multimedia':(card.category === 'Multimedia')}"
+        >
         <p class="cc-card__description">{{ card.description }}</p>
       </div>
 
@@ -117,28 +111,6 @@ export default {
     opacity: 0.3;
   }
 
-  &__seperator {
-    height: 10px;
-    width: 100%;
-    display: block;
-
-    &--administration {
-      background-color: $informatik-primary;
-    }
-
-    &--design {
-      background-color: $design-primary;
-    }
-
-    &--informatik {
-      background-color: $informatik-primary;
-    }
-
-    &--multimedia {
-      background-color: $multimedia-primary;
-    }
-  }
-
   &__image {
     background-position: center center;
     background-size: cover;
@@ -174,28 +146,13 @@ export default {
       line-height: 1.2rem;
       margin: 0.5rem 0 0.5rem 0;
     }
-
-    &--administration {
-      color: $informatik-primary;
-    }
-
-    &--design {
-      color: $design-primary;
-    }
-
-    &--informatik {
-      color: $informatik-primary;
-    }
-
-    &--multimedia {
-      color: $multimedia-primary;
-    }
   }
 
   &__category {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
     line-height: 1.1rem;
+    opacity: 0.84;
     margin: 0;
   }
 
@@ -205,13 +162,30 @@ export default {
     @media screen and (max-width: 380px) {
       padding: 20px;
     }
+
+    &--administration {
+      background: linear-gradient(to bottom right, $informatik-primary, $informatik-dark);
+    }
+
+    &--design {
+      background: linear-gradient(to bottom right, $design-primary, $design-dark);
+    }
+
+    &--informatik {
+      background: linear-gradient(to bottom right, $informatik-primary, $informatik-dark);
+    }
+
+    &--multimedia {
+      background: linear-gradient(to bottom right, $multimedia-primary, $multimedia-dark);
+    }
   }
 
   &__description {
+    color: white;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    hyphens: auto;
     margin: 0;
     text-align: justify;
-    hyphens: auto;
 
     @media screen and (max-width: 380px) {
       text-align: left;
