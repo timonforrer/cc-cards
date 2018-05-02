@@ -74,7 +74,7 @@ export default {
   name: 'onboarding',
   data () {
     return {
-      activeCard: 2
+      activeCard: 1
     }
   }
 }
