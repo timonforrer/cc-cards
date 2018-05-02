@@ -1,10 +1,11 @@
 <template>
   <div class="home">
     <cc-cards
-    class="cc-cards"
-    :cards="sortedCards"
-    @like="cardLike"
-    @nope="cardNope"></cc-cards>
+      class="cc-cards"
+      :cards="sortedCards"
+      @like="cardLike"
+      @nope="cardNope"
+    ></cc-cards>
   </div>
 </template>
 
