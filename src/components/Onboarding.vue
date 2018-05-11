@@ -1,64 +1,85 @@
 <template>
-  <div class="container">
-    <div class="cc-slides-wrapper">
-      <div
-        v-if="activeCard == 1"
-        class="cc-slide"
-      >
-        <h1 class="cc-slide__title cc-slide__title--center">
-          Mediamatiker Quiz
-        </h1>
-        <p class="cc-slide__description">
-          Finde heraus, ob Mediamatiker dein Traumberuf ist.
-        </p>
-
-        <button
-          class="cc-slide__cta cc-slide__cta--center"
-          v-on:click="activeCard = activeCard + 1"
+  <div class="outer">
+    <div class="container">
+      <div class="cc-slides-wrapper">
+        <div
+          v-if="activeCard == 1"
+          class="cc-slide"
         >
-          Starten
-        </button>
-      </div>
+          <h1 class="cc-slide__title cc-slide__title--center">
+            Mediamatiker Quiz
+          </h1>
+          <p class="cc-slide__description">
+            Finde heraus, ob Mediamatiker dein Traumberuf ist.
+          </p>
 
-      <div
-        class="cc-slide"
-        v-if="activeCard == 2"
-      >
-        <h2 class="cc-slide__title">
-          Right is alright.
-        </h2>
-        <p class="cc-slide__description">
-          Magst du die Tätigkeit, die auf der Karte beschrieben wird? Dann swipe die Karte nach rechts.
-        </p>
+          <button
+            class="cc-slide__cta cc-slide__cta--center"
+            v-on:click="activeCard = activeCard + 1"
+          >
+            Starten
+          </button>
+        </div>
 
-        <cc-card-preloader :direction="'right'"></cc-card-preloader>
-
-        <button
-          class="cc-slide__cta cc-slide__cta--center"
-          v-on:click="activeCard = activeCard - 1"
+        <div
+          class="cc-slide"
+          v-if="activeCard == 2"
         >
-          Zurück
-        </button>
-        <button
-          class="cc-slide__cta cc-slide__cta--center"
-          v-on:click="activeCard = activeCard + 1"
+          <h2 class="cc-slide__title">
+            Right is alright.
+          </h2>
+          <p class="cc-slide__description">
+            Magst du die Tätigkeit, die auf der Karte beschrieben wird? Dann swipe die Karte nach rechts.
+          </p>
+
+          <cc-card-preloader :direction="'right'"></cc-card-preloader>
+          <div class="cc-slide__cta-group">
+            <button
+              class="cc-slide__cta cc-slide__cta--inline"
+              v-on:click="activeCard = activeCard - 1"
+            >
+              Zurück
+            </button>
+            <button
+              class="cc-slide__cta cc-slide__cta--inline"
+              v-on:click="activeCard = activeCard + 1"
+            >
+              Weiter
+            </button>
+          </div>
+        </div>
+
+      <div
+          class="cc-slide"
+          v-if="activeCard == 3"
         >
-          Weiter
-        </button>
-      </div>
+          <h2 class="cc-slide__title">
+            Better left out.
+          </h2>
+          <p class="cc-slide__description">
+            Sagt dir die Tätigkeit nicht zu, dann swipe nach links.
+          </p>
 
-      <div
-        class="cc-slide-card"
-        v-if="activeCard == 3"
-      >
+          <cc-card-preloader :direction="'left'"></cc-card-preloader>
+          <div class="cc-slide__cta-group">
+            <button
+              class="cc-slide__cta cc-slide__cta--inline"
+              v-on:click="activeCard = activeCard - 1"
+            >
+              Zurück
+            </button>
+            <router-link class="cc-slide__cta cc-slide__cta--inline" tag="button" to="quiz">
+              Quiz starten
+            </router-link>
+          </div>
+        </div>
 
-      </div>
+        </div>
 
-      <div
-        class="cc-slide-card"
-        v-if="activeCard == 4"
-      >
-
+        <div
+          class="cc-slide-card"
+          v-if="activeCard == 4"
+        >
       </div>
     </div>
   </div>
@@ -66,6 +87,7 @@
 
 <script>
 import CardPreloader from './CardPreloader'
+import Router from 'vue-router'
 
 export default {
   components: {
@@ -74,7 +96,7 @@ export default {
   name: 'onboarding',
   data () {
     return {
-      activeCard: 1
+      activeCard: 2
     }
   }
 }
@@ -84,15 +106,24 @@ export default {
 <style lang="scss">
 @import "../sass/variables.scss";
 
-body {
+.outer {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
   background-color: $informatik-primary;
   color: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .container {
   margin: 0 auto;
   max-width: 640px;
   position: relative;
+  background-color: $informatik-primary;
 }
 
 .cc-slide {
@@ -112,6 +143,11 @@ body {
     font-family: 'Open Sans', sans-serif;
   }
 
+  &__cta-group {
+    margin-top: 1em;
+    text-align: center;
+  }
+
   &__cta {
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.7);
@@ -126,6 +162,10 @@ body {
 
     &--center {
       margin-top: 5em;
+    }
+
+    &--inline {
+      display: inline-block;
     }
   }
 }
