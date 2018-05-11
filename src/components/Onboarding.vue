@@ -87,7 +87,6 @@
 
 <script>
 import CardPreloader from './CardPreloader'
-import Router from 'vue-router'
 
 export default {
   components: {
@@ -96,7 +95,12 @@ export default {
   name: 'onboarding',
   data () {
     return {
-      activeCard: 2
+      activeCard: 1
+    }
+  },
+  onIdle () {
+    if (this.activeCard !== 1) {
+      this.activeCard = 1
     }
   }
 }
