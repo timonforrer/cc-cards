@@ -77,6 +77,9 @@ export default {
         this.message = 'Mediamatiker auf den 2. Blick?'
       }
     }
+  },
+  onIdle () {
+    this.$router.push('/')
   }
 }
 </script>

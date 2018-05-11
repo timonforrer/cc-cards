@@ -6,11 +6,18 @@ import VueFire from 'vuefire'
 import App from './App'
 import router from './router'
 import VueTouch from 'vue-touch'
+import IdleVue from 'idle-vue'
 
 Vue.config.productionTip = false
 
+const eventsHub = new Vue()
+
 Vue.use(VueFire)
 Vue.use(VueTouch, {name: 'v-touch'})
+Vue.use(IdleVue, {
+  eventEmitter: eventsHub,
+  idleTime: 10000
+})
 
 /* eslint-disable no-new */
 new Vue({
