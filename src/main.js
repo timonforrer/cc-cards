@@ -16,7 +16,7 @@ Vue.use(VueFire)
 Vue.use(VueTouch, {name: 'v-touch'})
 Vue.use(IdleVue, {
   eventEmitter: eventsHub,
-  idleTime: 10000
+  idleTime: 30000
 })
 
 /* eslint-disable no-new */
