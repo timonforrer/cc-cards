@@ -29,7 +29,7 @@
             Right is alright.
           </h2>
           <p class="cc-slide__description">
-            Magst du die Tätigkeit, die auf der Karte beschrieben wird? Dann swipe die Karte nach rechts.
+            Magst du die Tätigkeit, die auf der Karte beschrieben wird? Dann swipe nach rechts.
           </p>
 
           <cc-card-preloader :direction="'right'"></cc-card-preloader>
