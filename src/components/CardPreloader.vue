@@ -48,6 +48,18 @@ export default {
   }
 }
 
+@keyframes left {
+  from {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-300px) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
 .card {
   border: 3px solid rgba(255, 255, 255, 0.5);
   border-radius: 3px;
@@ -113,6 +125,9 @@ export default {
   &--animated {
     &-right {
       animation: right 4s infinite;
+    }
+    &-left {
+      animation: left 4s infinite;
     }
   }
 }
