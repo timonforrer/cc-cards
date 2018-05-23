@@ -87,7 +87,7 @@ export default {
 <style scoped lang="scss">
 .cc-card-wrapper {
   min-height: 100vh;
-  margin-top: 5em;
+  margin-top: 5rem;
   position: relative;
 
   @media screen and (max-width: 380px) {
@@ -110,7 +110,7 @@ export default {
   margin: 0 auto;
   width: 200px;
   z-index: 3;
-  top: 8em;
+  top: 8rem;
 
   @media screen and (max-width: 380px) {
     top: 0;

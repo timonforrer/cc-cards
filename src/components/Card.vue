@@ -135,14 +135,14 @@ export default {
 
   &__title {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    font-size: 2em;
     letter-spacing: 0.1em;
     line-height: 2rem;
     margin: 1rem 0 0.5rem 0;
     text-transform: uppercase;
 
     @media screen and (max-width: 380px) {
-      font-size: 1.2rem;
+      font-size: 1.2em;
       line-height: 1.2rem;
       margin: 0.5rem 0 0.5rem 0;
     }
@@ -150,7 +150,7 @@ export default {
 
   &__category {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     line-height: 1.1rem;
     opacity: 0.84;
     margin: 0;

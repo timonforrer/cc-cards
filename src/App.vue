@@ -14,6 +14,7 @@ export default {
 
 body {
   background-color: rgba(245, 245, 245, 1);
+  font-size: 18px;
 }
 
 </style>
