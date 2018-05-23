@@ -1,86 +1,84 @@
 <template>
   <div class="outer">
-    <div class="container">
-      <div class="cc-slides-wrapper">
-        <div
-          v-if="activeCard == 1"
-          class="cc-slide"
+    <div class="cc-slides-wrapper">
+      <div
+        v-if="activeCard == 1"
+        class="cc-slide"
+      >
+        <h1 class="cc-slide__title">
+          Mediamatiker Quiz
+        </h1>
+        <p class="cc-slide__description">
+          Finde heraus, ob Mediamatiker dein Traumberuf ist.
+        </p>
+
+        <button
+          class="cc-slide__cta cc-slide__cta--center"
+          v-on:click="activeCard = activeCard + 1"
         >
-          <h1 class="cc-slide__title cc-slide__title--center">
-            Mediamatiker Quiz
-          </h1>
-          <p class="cc-slide__description">
-            Finde heraus, ob Mediamatiker dein Traumberuf ist.
-          </p>
-
-          <button
-            class="cc-slide__cta cc-slide__cta--center"
-            v-on:click="activeCard = activeCard + 1"
-          >
-            Starten
-          </button>
-        </div>
-
-        <div
-          class="cc-slide"
-          v-if="activeCard == 2"
-        >
-          <h2 class="cc-slide__title">
-            Right is alright.
-          </h2>
-          <p class="cc-slide__description">
-            Magst du die Tätigkeit, die auf der Karte beschrieben wird? Dann swipe nach rechts.
-          </p>
-
-          <cc-card-preloader :direction="'right'"></cc-card-preloader>
-          <div class="cc-slide__cta-group">
-            <button
-              class="cc-slide__cta cc-slide__cta--inline"
-              v-on:click="activeCard = activeCard - 1"
-            >
-              Zurück
-            </button>
-            <button
-              class="cc-slide__cta cc-slide__cta--inline"
-              v-on:click="activeCard = activeCard + 1"
-            >
-              Weiter
-            </button>
-          </div>
-        </div>
+          Starten
+        </button>
+      </div>
 
       <div
-          class="cc-slide"
-          v-if="activeCard == 3"
-        >
-          <h2 class="cc-slide__title">
-            Better left out.
-          </h2>
-          <p class="cc-slide__description">
-            Sagt dir die Tätigkeit nicht zu, dann swipe nach links.
-          </p>
+        class="cc-slide"
+        v-if="activeCard == 2"
+      >
+        <h2 class="cc-slide__title">
+          Right is alright.
+        </h2>
+        <p class="cc-slide__description">
+          Magst du die Tätigkeit, die auf der Karte beschrieben wird? Dann swipe nach rechts.
+        </p>
 
-          <cc-card-preloader :direction="'left'"></cc-card-preloader>
-          <div class="cc-slide__cta-group">
-            <button
-              class="cc-slide__cta cc-slide__cta--inline"
-              v-on:click="activeCard = activeCard - 1"
-            >
-              Zurück
-            </button>
-            <router-link class="cc-slide__cta cc-slide__cta--inline" tag="button" to="quiz">
-              Quiz starten
-            </router-link>
-          </div>
+        <cc-card-preloader :direction="'right'"></cc-card-preloader>
+        <div class="cc-slide__cta-group">
+          <button
+            class="cc-slide__cta cc-slide__cta--inline"
+            v-on:click="activeCard = activeCard - 1"
+          >
+            Zurück
+          </button>
+          <button
+            class="cc-slide__cta cc-slide__cta--inline"
+            v-on:click="activeCard = activeCard + 1"
+          >
+            Weiter
+          </button>
         </div>
-
-        </div>
-
-        <div
-          class="cc-slide-card"
-          v-if="activeCard == 4"
-        >
       </div>
+
+    <div
+        class="cc-slide"
+        v-if="activeCard == 3"
+      >
+        <h2 class="cc-slide__title">
+          Better left out.
+        </h2>
+        <p class="cc-slide__description">
+          Sagt dir die Tätigkeit nicht zu, dann swipe nach links.
+        </p>
+
+        <cc-card-preloader :direction="'left'"></cc-card-preloader>
+        <div class="cc-slide__cta-group">
+          <button
+            class="cc-slide__cta cc-slide__cta--inline"
+            v-on:click="activeCard = activeCard - 1"
+          >
+            Zurück
+          </button>
+          <router-link class="cc-slide__cta cc-slide__cta--inline" tag="button" to="quiz">
+            Quiz starten
+          </router-link>
+        </div>
+      </div>
+
+      </div>
+
+      <div
+        class="cc-slide-card"
+        v-if="activeCard == 4"
+      >
     </div>
   </div>
 </template>
@@ -116,11 +114,14 @@ export default {
   bottom: 0;
   left: 0;
 
+  align-items: center;
   background-color: $informatik-primary;
   color: white;
+  display: flex;
   height: 100%;
-  width: 100%;
+  justify-content: center;
   position: absolute;
+  width: 100%;
 }
 
 .container {
@@ -137,10 +138,6 @@ export default {
     color: rgba(255, 255, 255, 0.9);
     font-size: 2.3em;
     margin-bottom: 0em;
-
-    &--center {
-      margin-top: 5em;
-    }
   }
 
   &__description {
@@ -148,7 +145,7 @@ export default {
   }
 
   &__cta-group {
-    margin-top: 1em;
+    margin-top: 5em;
     text-align: center;
   }
 
