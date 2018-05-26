@@ -22,13 +22,6 @@
 
     </div>
 
-    <!--<div class="aligner">
-      <div class="center" v-if="this.activeCard != this.cards.length">
-        <button @click="[like(cards[activeCard].category), updateActive()]">Like</button>
-        <button @click="[nope(cards[activeCard].category), updateActive()]">Nope</button>
-      </div>
-    </div>-->
-
   </div>
 </template>
 
