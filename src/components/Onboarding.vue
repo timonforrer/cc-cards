@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="{'outer--animated': activeCard == 1, 'outer--standard': activeCard != 1}" class="outer">
+  <div class="outer">
     <div class="cc-slides-wrapper">
       <div
         v-if="activeCard == 1"
@@ -108,10 +108,6 @@ export default {
 <style lang="scss">
 @import "../sass/variables.scss";
 
-body {
-  margin: 0;
-}
-
 .outer {
   top: 0;
   right: 0;
@@ -119,27 +115,20 @@ body {
   left: 0;
 
   align-items: center;
+  background-color: $informatik-primary;
   color: white;
   display: flex;
+  height: 100%;
   justify-content: center;
-  min-height: 100vh;
-  padding-bottom: 1em;
-}
-
-.outer--animated {
-  animation-name: colours;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
-}
-
-.outer--standard {
-  background-color: $informatik-primary;
+  position: absolute;
+  width: 100%;
 }
 
 .container {
   margin: 0 auto;
   max-width: 640px;
   position: relative;
+  background-color: $informatik-primary;
 }
 
 .cc-slide {
@@ -181,23 +170,4 @@ body {
     }
   }
 }
-
-@keyframes colours {
-  0% {
-      background-color: $informatik-primary;
-    }
-  25% {
-      background-color: $administration-primary;
-    }
-  50% {
-      background-color: $multimedia-primary;
-    }
-  75% {
-      background-color: $design-primary;
-  }
-  100% {
-      background-color: $informatik-primary;
-  }
-}
-
 </style>
